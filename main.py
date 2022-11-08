@@ -4,6 +4,7 @@ from loss import *
 from dataset import *
 import os
 from sklearn import metrics
+path_to_data = 'path_to_data' #please enter the location of your data 
 
 normal_train_dataset = Normal_Loader(is_train=1)
 normal_test_dataset = Normal_Loader(is_train=0)
