@@ -8,7 +8,7 @@ class Normal_Loader(Dataset):
     """
     is_train = 1 <- train, 0 <- test
     """
-    def __init__(self, is_train=1, path='/workspace/DATA/UCF-Crime/'):
+    def __init__(self, is_train=1, path=path_to_data):
         super(Normal_Loader, self).__init__()
         self.is_train = is_train
         self.path = path
@@ -42,7 +42,7 @@ class Anomaly_Loader(Dataset):
     """
     is_train = 1 <- train, 0 <- test
     """
-    def __init__(self, is_train=1, path='/workspace/DATA/UCF-Crime/'):
+    def __init__(self, is_train=1, path=path_to_data):
         super(Anomaly_Loader, self).__init__()
         self.is_train = is_train
         self.path = path
