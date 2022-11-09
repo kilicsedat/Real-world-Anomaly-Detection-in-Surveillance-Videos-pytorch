@@ -27,14 +27,14 @@ class Normal_Loader(Dataset):
 
     def __getitem__(self, idx):
         if self.is_train == 1:
-            rgb_npy = np.load(os.path.join(self.path+'all_rgbs', self.data_list[idx][:-1]+'.npy'))
-            flow_npy = np.load(os.path.join(self.path+'all_flows', self.data_list[idx][:-1]+'.npy'))
+            rgb_npy = np.load(os.path.join(self.path+'/all_rgbs', self.data_list[idx][:-1]+'.npy'))
+            flow_npy = np.load(os.path.join(self.path+'/all_flows', self.data_list[idx][:-1]+'.npy'))
             concat_npy = np.concatenate([rgb_npy, flow_npy], axis=1)
             return concat_npy
         else:
             name, frames, gts = self.data_list[idx].split(' ')[0], int(self.data_list[idx].split(' ')[1]), int(self.data_list[idx].split(' ')[2][:-1])
-            rgb_npy = np.load(os.path.join(self.path+'all_rgbs', name + '.npy'))
-            flow_npy = np.load(os.path.join(self.path+'all_flows', name + '.npy'))
+            rgb_npy = np.load(os.path.join(self.path+'/all_rgbs', name + '.npy'))
+            flow_npy = np.load(os.path.join(self.path+'/all_flows', name + '.npy'))
             concat_npy = np.concatenate([rgb_npy, flow_npy], axis=1)
             return concat_npy, gts, frames
 
@@ -60,15 +60,15 @@ class Anomaly_Loader(Dataset):
 
     def __getitem__(self, idx):
         if self.is_train == 1:
-            rgb_npy = np.load(os.path.join(self.path+'all_rgbs', self.data_list[idx][:-1]+'.npy'))
-            flow_npy = np.load(os.path.join(self.path+'all_flows', self.data_list[idx][:-1]+'.npy'))
+            rgb_npy = np.load(os.path.join(self.path+'/all_rgbs', self.data_list[idx][:-1]+'.npy'))
+            flow_npy = np.load(os.path.join(self.path+'/all_flows', self.data_list[idx][:-1]+'.npy'))
             concat_npy = np.concatenate([rgb_npy, flow_npy], axis=1)
             return concat_npy
         else:
             name, frames, gts = self.data_list[idx].split('|')[0], int(self.data_list[idx].split('|')[1]), self.data_list[idx].split('|')[2][1:-2].split(',')
             gts = [int(i) for i in gts]
-            rgb_npy = np.load(os.path.join(self.path+'all_rgbs', name + '.npy'))
-            flow_npy = np.load(os.path.join(self.path+'all_flows', name + '.npy'))
+            rgb_npy = np.load(os.path.join(self.path+'/all_rgbs', name + '.npy'))
+            flow_npy = np.load(os.path.join(self.path+'/all_flows', name + '.npy'))
             concat_npy = np.concatenate([rgb_npy, flow_npy], axis=1)
             return concat_npy, gts, frames
 
