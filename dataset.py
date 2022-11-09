@@ -4,6 +4,8 @@ import numpy as np
 import os
 import random
 
+path_to_data = 'path_to_data' #please enter the location of your data 
+
 class Normal_Loader(Dataset):
     """
     is_train = 1 <- train, 0 <- test
